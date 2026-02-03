@@ -34,107 +34,57 @@
     overflow-x: hidden;
   }
 
-  .container {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
   /* Nav */
-  nav {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .logo {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-muted);
-  }
+  nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  nav .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 18px; font-weight: 700; color: var(--text-muted); }
   .nav-cta {
-    background: var(--accent);
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 8px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px;
     transition: opacity 0.2s;
   }
   .nav-cta:hover { opacity: 0.9; }
 
   /* Hero */
-  .hero {
-    padding: 100px 0 80px;
-    position: relative;
-  }
+  .hero { padding: 100px 0 80px; position: relative; }
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
+    content: ''; position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, var(--accent-soft), transparent 70%);
     pointer-events: none;
   }
   .badge {
-    display: inline-block;
-    background: var(--accent-soft);
-    border: 1px solid rgba(99,102,241,0.3);
-    color: #818cf8;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    display: inline-block; background: var(--accent-soft);
+    border: 1px solid rgba(99,102,241,0.3); color: #818cf8;
+    font-size: 13px; font-weight: 600; padding: 6px 16px;
+    border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;
     margin-bottom: 24px;
   }
   h1 {
-    font-size: clamp(36px, 6vw, 56px);
-    font-weight: 800;
-    line-height: 1.08;
+    font-size: clamp(36px, 6vw, 56px); font-weight: 800; line-height: 1.08;
     margin-bottom: 20px;
     background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .hero-sub {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 40px;
+    font-size: clamp(16px, 2.5vw, 20px); color: var(--text-muted);
+    max-width: 600px; margin-bottom: 40px;
   }
-  .hero-cta {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 16px 40px;
-    border-radius: 12px;
+  .cta-btn {
+    display: inline-block; background: var(--accent); color: #fff;
+    text-decoration: none; font-size: 18px; font-weight: 700;
+    padding: 16px 40px; border-radius: 12px;
     transition: transform 0.2s, opacity 0.2s;
   }
-  .hero-cta:hover { transform: translateY(-2px); opacity: 0.95; }
-  .hero-note {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-top: 12px;
-  }
+  .cta-btn:hover { transform: translateY(-2px); opacity: 0.95; }
+  .hero-note { font-size: 13px; color: var(--text-dim); margin-top: 12px; }
 
   /* Stats */
   .stats {
-    display: flex;
-    gap: 40px;
-    padding: 50px 0;
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
+    display: flex; gap: 40px; padding: 50px 0;
+    border-bottom: 1px solid var(--border); flex-wrap: wrap;
   }
   .stat { text-align: center; flex: 1; min-width: 100px; }
   .stat-value { font-size: clamp(28px, 4vw, 36px); font-weight: 800; color: #818cf8; }
@@ -143,81 +93,49 @@
   /* Section */
   section { padding: 80px 0; }
   .section-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
+    font-size: 12px; font-weight: 700; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
   }
   .section-title {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 800;
-    margin-bottom: 16px;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px;
   }
   .section-desc {
-    font-size: 18px;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 48px;
+    font-size: 18px; color: var(--text-muted); max-width: 600px; margin-bottom: 48px;
   }
 
   /* Problem */
-  .problems {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
+  .problems { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .problem-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
   }
   .problem-card .emoji { font-size: 28px; margin-bottom: 12px; }
   .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
   .problem-card p { font-size: 14px; color: var(--text-muted); }
 
   /* Stack */
-  .stack-flow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
   }
   .stack-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 22px;
-    text-align: center;
-    min-width: 120px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 16px; text-align: center;
     transition: border-color 0.2s;
   }
   .stack-item:hover { border-color: rgba(99,102,241,0.3); }
-  .stack-item .icon { font-size: 32px; margin-bottom: 8px; }
+  .stack-item img { width: 48px; height: 48px; margin-bottom: 12px; border-radius: 10px; object-fit: contain; }
   .stack-item .name { font-size: 14px; font-weight: 600; color: #e5e7eb; }
-  .stack-item .role { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
-  .stack-arrow { color: #4b5563; font-size: 20px; }
-  @media (max-width: 768px) {
-    .stack-arrow { display: none; }
-    .stack-flow { gap: 10px; }
-    .stack-item { min-width: 90px; padding: 14px; }
-  }
+  .stack-item .role { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
 
   /* Phases */
-  .phases {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
+  .phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .phase {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    transition: border-color 0.2s;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; transition: border-color 0.2s;
   }
   .phase:hover { border-color: rgba(99,102,241,0.2); }
   .phase-number { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
@@ -230,9 +148,7 @@
   .outcome-box {
     background: linear-gradient(135deg, var(--green-soft), var(--accent-soft));
     border: 1px solid rgba(16,185,129,0.2);
-    border-radius: 24px;
-    padding: 48px 32px;
-    text-align: center;
+    border-radius: 24px; padding: 48px 32px; text-align: center;
   }
   .outcome-box h3 { font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 32px; }
   .outcome-items { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
@@ -240,95 +156,67 @@
   .outcome-item .oi-icon { font-size: 36px; margin-bottom: 10px; }
   .outcome-item .oi-text { font-size: 14px; color: #d1d5db; font-weight: 500; line-height: 1.4; }
 
+  /* About / Instructor */
+  .about-card {
+    display: flex; gap: 32px; align-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 40px;
+  }
+  .about-photo {
+    width: 140px; height: 140px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    border: 3px solid rgba(99,102,241,0.3);
+  }
+  .about-info h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .about-info .title { font-size: 15px; color: #818cf8; font-weight: 600; margin-bottom: 12px; }
+  .about-info p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+  .about-creds { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .about-creds .cred { font-size: 13px; color: var(--text-dim); }
+  .about-creds .cred strong { color: #e5e7eb; }
+  @media (max-width: 640px) {
+    .about-card { flex-direction: column; text-align: center; }
+    .about-creds { justify-content: center; }
+  }
+
   /* Social proof */
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .proof-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
   }
-  .proof-card .quote {
-    font-size: 16px;
-    color: #e5e7eb;
-    font-style: italic;
-    margin-bottom: 16px;
-    line-height: 1.6;
-  }
+  .proof-card .quote { font-size: 16px; color: #e5e7eb; font-style: italic; margin-bottom: 16px; line-height: 1.6; }
   .proof-card .author { font-size: 14px; color: var(--text-dim); font-weight: 600; }
 
   /* Pricing */
-  .pricing-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
+  .pricing-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .price-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 36px 28px;
-    text-align: center;
-    transition: border-color 0.2s;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px 28px; text-align: center;
   }
   .price-card.featured { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
   .price-card .tier-name { font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
   .price-card .price { font-size: 48px; font-weight: 800; margin-bottom: 4px; }
   .price-card .price-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
-  .price-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+  .price-card ul { list-style: none; text-align: left; }
   .price-card li { font-size: 14px; color: #d1d5db; padding: 5px 0; }
   .price-card li::before { content: '✓ '; color: var(--green); font-weight: 700; }
-  .price-card .card-cta {
-    display: inline-block;
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    transition: opacity 0.2s;
-  }
-  .price-card .card-cta:hover { opacity: 0.9; }
-  .price-card .card-cta.primary { background: var(--accent); color: #fff; }
-  .price-card .card-cta.secondary { background: rgba(255,255,255,0.08); color: #fff; }
 
   /* FAQ */
   .faq-list { max-width: 700px; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-  }
-  .faq-q {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    cursor: pointer;
-  }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
+  .faq-q { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
   .faq-a { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
 
   /* Final CTA */
-  .final-cta {
-    text-align: center;
-    padding: 100px 0;
-  }
+  .final-cta { text-align: center; padding: 100px 0; }
   .final-cta h2 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; }
   .final-cta p { font-size: 18px; color: var(--text-muted); margin-bottom: 36px; }
 
   /* Footer */
-  footer {
-    padding: 40px 0;
-    border-top: 1px solid var(--border);
-  }
+  footer { padding: 40px 0; border-top: 1px solid var(--border); }
   footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
   }
   .footer-brand { font-size: 16px; font-weight: 700; color: var(--text-dim); }
   .footer-links { display: flex; gap: 24px; }
@@ -342,7 +230,7 @@
 <nav>
   <div class="container">
     <div class="logo">Your Private Assistant</div>
-    <a href="#pricing" class="nav-cta">Book a Session</a>
+    <a href="CALENDLY_LINK" class="nav-cta">Book a Consultation</a>
   </div>
 </nav>
 
@@ -352,7 +240,7 @@
     <div class="badge">Live Guided Setup</div>
     <h1>Your Own AI Assistant.<br>On Your Phone.<br>In 2 Hours.</h1>
     <p class="hero-sub">A live, one-on-one session where I set up a complete private AI assistant you can text from your phone — it knows your business, writes code, automates tasks, and answers on demand.</p>
-    <a href="#pricing" class="hero-cta">Book Your Session →</a>
+    <a href="CALENDLY_LINK" class="cta-btn">Book a Free Consultation →</a>
     <p class="hero-note">No coding experience needed · Works on Mac & Windows</p>
   </div>
 </header>
@@ -374,48 +262,55 @@
     <h2 class="section-title">AI is everywhere. But setting it up?</h2>
     <p class="section-desc">You've seen the demos. You know AI can transform your business. But when you try to actually use it...</p>
     <div class="problems">
-      <div class="problem-card">
-        <div class="emoji">😵‍💫</div>
-        <h3>Too many tools</h3>
-        <p>ChatGPT, Claude, Gemini, Copilot... Which one? How do they work together? Nobody explains this.</p>
-      </div>
-      <div class="problem-card">
-        <div class="emoji">🖥️</div>
-        <h3>Technical setup is brutal</h3>
-        <p>Terminals, CLIs, API keys, authentication flows. One wrong step and nothing works.</p>
-      </div>
-      <div class="problem-card">
-        <div class="emoji">😤</div>
-        <h3>YouTube doesn't cut it</h3>
-        <p>Fragmented tutorials that are already outdated. No one to ask when you get stuck.</p>
-      </div>
+      <div class="problem-card"><div class="emoji">😵‍💫</div><h3>Too many tools</h3><p>ChatGPT, Claude, Gemini, Copilot... Which one? How do they work together? Nobody explains this.</p></div>
+      <div class="problem-card"><div class="emoji">🖥️</div><h3>Technical setup is brutal</h3><p>Terminals, CLIs, API keys, authentication flows. One wrong step and nothing works.</p></div>
+      <div class="problem-card"><div class="emoji">😤</div><h3>YouTube doesn't cut it</h3><p>Fragmented tutorials that are already outdated. No one to ask when you get stuck.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Solution / Stack -->
+<!-- Stack -->
 <section style="background: rgba(255,255,255,0.01);">
   <div class="container">
     <div class="section-label">The Solution</div>
     <h2 class="section-title">We handle the hard part. You walk away with a personal AI.</h2>
     <p class="section-desc">In a single live session, I install and configure a complete AI assistant stack on your machine — connected to your phone.</p>
-    <div class="stack-flow">
-      <div class="stack-item"><div class="icon">🔑</div><div class="name">Google Account</div><div class="role">Identity & SSO</div></div>
-      <span class="stack-arrow">→</span>
-      <div class="stack-item"><div class="icon">🧠</div><div class="name">Claude Code</div><div class="role">AI Brain</div></div>
-      <span class="stack-arrow">→</span>
-      <div class="stack-item"><div class="icon">⌨️</div><div class="name">Anti-gravity</div><div class="role">Desktop IDE</div></div>
-      <span class="stack-arrow">→</span>
-      <div class="stack-item"><div class="icon">💎</div><div class="name">Warp Terminal</div><div class="role">AI Terminal</div></div>
-      <span class="stack-arrow">→</span>
-      <div class="stack-item"><div class="icon">📝</div><div class="name">Obsidian</div><div class="role">Memory</div></div>
-      <span class="stack-arrow">→</span>
-      <div class="stack-item"><div class="icon">📱</div><div class="name">Telegram</div><div class="role">Phone Access</div></div>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <img src="https://www.gstatic.com/images/branding/product/2x/hm_gmail_64dp.png" alt="Google">
+        <div class="name">Google Account</div>
+        <div class="role">Identity & SSO</div>
+      </div>
+      <div class="stack-item">
+        <img src="https://claude.ai/images/claude_app_icon.png" alt="Claude" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<div style=&quot;font-size:40px;margin-bottom:12px&quot;>🧠</div>')">
+        <div class="name">Claude Code</div>
+        <div class="role">AI Brain</div>
+      </div>
+      <div class="stack-item">
+        <img src="https://www.gstatic.com/images/branding/product/2x/firebase_64dp.png" alt="Anti-gravity" onerror="this.src='https://fonts.gstatic.com/s/i/productlogos/idx/v1/64px.svg'">
+        <div class="name">Anti-gravity</div>
+        <div class="role">Desktop IDE</div>
+      </div>
+      <div class="stack-item">
+        <img src="https://assets-global.website-files.com/64b6f3636f598299028c3205/64c39a86c006e93e2f7b6ecb_warp-symbol-white.svg" alt="Warp" style="filter: brightness(1.2);" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<div style=&quot;font-size:40px;margin-bottom:12px&quot;>💎</div>')">
+        <div class="name">Warp Terminal</div>
+        <div class="role">AI Terminal</div>
+      </div>
+      <div class="stack-item">
+        <img src="https://obsidian.md/images/obsidian-logo-gradient.svg" alt="Obsidian" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('afterbegin','<div style=&quot;font-size:40px;margin-bottom:12px&quot;>📝</div>')">
+        <div class="name">Obsidian</div>
+        <div class="role">Memory</div>
+      </div>
+      <div class="stack-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/120px-Telegram_logo.svg.png" alt="Telegram">
+        <div class="name">Telegram</div>
+        <div class="role">Phone Access</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Session Flow -->
+<!-- How It Works -->
 <section>
   <div class="container">
     <div class="section-label">How It Works</div>
@@ -462,12 +357,33 @@
   </div>
 </section>
 
-<!-- Social Proof -->
+<!-- About the Instructor -->
 <section>
+  <div class="container">
+    <div class="section-label">Your Instructor</div>
+    <h2 class="section-title">Who's setting this up for you?</h2>
+    <div class="about-card" style="margin-top: 32px;">
+      <img src="https://avatars.githubusercontent.com/u/40489767?v=4" alt="Bertrand Atemkeng" class="about-photo">
+      <div class="about-info">
+        <h3>Bertrand Atemkeng</h3>
+        <div class="title">Solution Architect & AI Specialist</div>
+        <p>I've spent over a decade building software systems for enterprises and startups. Now I help non-technical entrepreneurs harness AI without the learning curve. I've personally set up AI assistants for business owners, sales teams, and creatives — and I'll do the same for you, live, in a single session.</p>
+        <div class="about-creds">
+          <div class="cred"><strong>10+</strong> years in tech</div>
+          <div class="cred"><strong>Solution Architect</strong> by trade</div>
+          <div class="cred"><strong>CEO</strong> of J&A Business Solutions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section style="background: rgba(255,255,255,0.01);">
   <div class="container">
     <div class="section-label">What People Say</div>
     <h2 class="section-title">From skeptic to hooked in 2 hours</h2>
-    <div class="proof-grid">
+    <div class="proof-grid" style="margin-top: 32px;">
       <div class="proof-card">
         <div class="quote">"Everything that you've shown me — we can already start selling this. It's like that BMW training they sold for $10K, but it was just basic software tutorials. This is way beyond that."</div>
         <div class="author">— Randalls C., Sales Executive & Entrepreneur</div>
@@ -481,7 +397,7 @@
 </section>
 
 <!-- Pricing -->
-<section id="pricing" style="background: rgba(255,255,255,0.01);">
+<section id="pricing">
   <div class="container">
     <div class="section-label">Investment</div>
     <h2 class="section-title">Choose your setup</h2>
@@ -498,7 +414,6 @@
           <li>Session recording to keep</li>
           <li>30 days of direct support</li>
         </ul>
-        <a href="#book" class="card-cta secondary">Get Started</a>
       </div>
       <div class="price-card featured">
         <div class="tier-name">Always-On ⭐</div>
@@ -513,7 +428,6 @@
           <li>Obsidian memory sync (mobile)</li>
           <li>Follow-up call included</li>
         </ul>
-        <a href="#book" class="card-cta primary">Most Popular →</a>
       </div>
       <div class="price-card">
         <div class="tier-name">Team</div>
@@ -526,18 +440,17 @@
           <li>Team workflow customization</li>
           <li>90 days of team support</li>
         </ul>
-        <a href="#book" class="card-cta secondary">Contact Us</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section>
+<section style="background: rgba(255,255,255,0.01);">
   <div class="container">
     <div class="section-label">FAQ</div>
     <h2 class="section-title">Common questions</h2>
-    <div class="faq-list">
+    <div class="faq-list" style="margin-top: 32px;">
       <div class="faq-item">
         <div class="faq-q">Do I need any coding experience?</div>
         <div class="faq-a">None at all. This is designed for people who have never written a line of code. I guide you through every single step live.</div>
@@ -571,7 +484,7 @@
   <div class="container">
     <h2>Ready to meet your AI?</h2>
     <p>One session. Your own private assistant. On your phone by tonight.</p>
-    <a href="#book" class="hero-cta">Book Your Session →</a>
+    <a href="CALENDLY_LINK" class="cta-btn">Book a Free Consultation →</a>
     <p class="hero-note">Limited spots available · Pilot pricing won't last</p>
   </div>
 </section>
