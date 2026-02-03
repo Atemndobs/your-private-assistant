@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Private Assistant — AI Setup in 2 Hours</title>
+<meta name="description" content="Get your own private AI assistant on your phone in 2 hours. No coding required. Live guided session.">
+<meta property="og:title" content="Your Private Assistant — On Your Phone in 2 Hours">
+<meta property="og:description" content="A live session where we set up a complete private AI assistant you can text from your phone.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg: #0a0a0a;
+    --surface: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.08);
+    --text: #fff;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
+    --accent: #6366f1;
+    --accent-soft: rgba(99, 102, 241, 0.15);
+    --green: #10b981;
+    --green-soft: rgba(16, 185, 129, 0.1);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.9; }
+
+  /* Hero */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid rgba(99,102,241,0.3);
+    color: #818cf8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 12px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); opacity: 0.95; }
+  .hero-note {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 12px;
+  }
+
+  /* Stats */
+  .stats {
+    display: flex;
+    gap: 40px;
+    padding: 50px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; flex: 1; min-width: 100px; }
+  .stat-value { font-size: clamp(28px, 4vw, 36px); font-weight: 800; color: #818cf8; }
+  .stat-label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* Section */
+  section { padding: 80px 0; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+
+  /* Problem */
+  .problems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .problem-card .emoji { font-size: 28px; margin-bottom: 12px; }
+  .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .problem-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* Stack */
+  .stack-flow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stack-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    text-align: center;
+    min-width: 120px;
+    transition: border-color 0.2s;
+  }
+  .stack-item:hover { border-color: rgba(99,102,241,0.3); }
+  .stack-item .icon { font-size: 32px; margin-bottom: 8px; }
+  .stack-item .name { font-size: 14px; font-weight: 600; color: #e5e7eb; }
+  .stack-item .role { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .stack-arrow { color: #4b5563; font-size: 20px; }
+  @media (max-width: 768px) {
+    .stack-arrow { display: none; }
+    .stack-flow { gap: 10px; }
+    .stack-item { min-width: 90px; padding: 14px; }
+  }
+
+  /* Phases */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .phase {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .phase:hover { border-color: rgba(99,102,241,0.2); }
+  .phase-number { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .phase-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .phase-desc { font-size: 14px; color: var(--text-muted); }
+  .phase-time { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+  .phase.highlight { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
+
+  /* Outcome */
+  .outcome-box {
+    background: linear-gradient(135deg, var(--green-soft), var(--accent-soft));
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .outcome-box h3 { font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 32px; }
+  .outcome-items { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .outcome-item { text-align: center; min-width: 120px; }
+  .outcome-item .oi-icon { font-size: 36px; margin-bottom: 10px; }
+  .outcome-item .oi-text { font-size: 14px; color: #d1d5db; font-weight: 500; line-height: 1.4; }
+
+  /* Social proof */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .proof-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .proof-card .quote {
+    font-size: 16px;
+    color: #e5e7eb;
+    font-style: italic;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .proof-card .author { font-size: 14px; color: var(--text-dim); font-weight: 600; }
+
+  /* Pricing */
+  .pricing-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .price-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .price-card.featured { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
+  .price-card .tier-name { font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .price-card .price { font-size: 48px; font-weight: 800; margin-bottom: 4px; }
+  .price-card .price-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
+  .price-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+  .price-card li { font-size: 14px; color: #d1d5db; padding: 5px 0; }
+  .price-card li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+  .price-card .card-cta {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: opacity 0.2s;
+  }
+  .price-card .card-cta:hover { opacity: 0.9; }
+  .price-card .card-cta.primary { background: var(--accent); color: #fff; }
+  .price-card .card-cta.secondary { background: rgba(255,255,255,0.08); color: #fff; }
+
+  /* FAQ */
+  .faq-list { max-width: 700px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  .faq-a { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Final CTA */
+  .final-cta {
+    text-align: center;
+    padding: 100px 0;
+  }
+  .final-cta h2 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; }
+  .final-cta p { font-size: 18px; color: var(--text-muted); margin-bottom: 36px; }
+
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand { font-size: 16px; font-weight: 700; color: var(--text-dim); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 14px; color: var(--text-dim); text-decoration: none; }
+  .footer-links a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="container">
+    <div class="logo">Your Private Assistant</div>
+    <a href="#pricing" class="nav-cta">Book a Session</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <div class="badge">Live Guided Setup</div>
+    <h1>Your Own AI Assistant.<br>On Your Phone.<br>In 2 Hours.</h1>
+    <p class="hero-sub">A live, one-on-one session where I set up a complete private AI assistant you can text from your phone — it knows your business, writes code, automates tasks, and answers on demand.</p>
+    <a href="#pricing" class="hero-cta">Book Your Session →</a>
+    <p class="hero-note">No coding experience needed · Works on Mac & Windows</p>
+  </div>
+</header>
+
+<!-- Stats -->
+<div class="container">
+  <div class="stats">
+    <div class="stat"><div class="stat-value">2h</div><div class="stat-label">Live Session</div></div>
+    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Coding Required</div></div>
+    <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Always On</div></div>
+    <div class="stat"><div class="stat-value">📱</div><div class="stat-label">Text from Phone</div></div>
+  </div>
+</div>
+
+<!-- Problem -->
+<section>
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">AI is everywhere. But setting it up?</h2>
+    <p class="section-desc">You've seen the demos. You know AI can transform your business. But when you try to actually use it...</p>
+    <div class="problems">
+      <div class="problem-card">
+        <div class="emoji">😵‍💫</div>
+        <h3>Too many tools</h3>
+        <p>ChatGPT, Claude, Gemini, Copilot... Which one? How do they work together? Nobody explains this.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">🖥️</div>
+        <h3>Technical setup is brutal</h3>
+        <p>Terminals, CLIs, API keys, authentication flows. One wrong step and nothing works.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">😤</div>
+        <h3>YouTube doesn't cut it</h3>
+        <p>Fragmented tutorials that are already outdated. No one to ask when you get stuck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution / Stack -->
+<section style="background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="section-label">The Solution</div>
+    <h2 class="section-title">We handle the hard part. You walk away with a personal AI.</h2>
+    <p class="section-desc">In a single live session, I install and configure a complete AI assistant stack on your machine — connected to your phone.</p>
+    <div class="stack-flow">
+      <div class="stack-item"><div class="icon">🔑</div><div class="name">Google Account</div><div class="role">Identity & SSO</div></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item"><div class="icon">🧠</div><div class="name">Claude Code</div><div class="role">AI Brain</div></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item"><div class="icon">⌨️</div><div class="name">Anti-gravity</div><div class="role">Desktop IDE</div></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item"><div class="icon">💎</div><div class="name">Warp Terminal</div><div class="role">AI Terminal</div></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item"><div class="icon">📝</div><div class="name">Obsidian</div><div class="role">Memory</div></div>
+      <span class="stack-arrow">→</span>
+      <div class="stack-item"><div class="icon">📱</div><div class="name">Telegram</div><div class="role">Phone Access</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Session Flow -->
+<section>
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Your 2-hour session, step by step</h2>
+    <p class="section-desc">No prep needed beyond a laptop and internet. I guide you through everything live.</p>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-number">Phase 1 · 20 min</div>
+        <div class="phase-title">🔧 Foundation</div>
+        <div class="phase-desc">Accounts, browser setup, system check. We make sure everything's ready before we build.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-number">Phase 2 · 30 min</div>
+        <div class="phase-title">⚡ Core Tools</div>
+        <div class="phase-desc">Install your AI toolkit — Warp Terminal, Claude Code, and Anti-gravity IDE. The engines behind your assistant.</div>
+      </div>
+      <div class="phase highlight">
+        <div class="phase-number">Phase 3 · 40 min — The Magic</div>
+        <div class="phase-title">📱 Connect to Your Phone</div>
+        <div class="phase-desc">Set up your Telegram bot, configure your assistant's memory, and text your AI for the first time. This is the moment it clicks.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-number">Phase 4 · 20 min</div>
+        <div class="phase-title">🛠️ Build Something Real</div>
+        <div class="phase-desc">Together, we build a tool tailored to YOUR business — a sales automator, expense tracker, content generator, whatever you need most.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Outcome -->
+<section style="background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="outcome-box">
+      <h3>🎯 What You Walk Away With</h3>
+      <div class="outcome-items">
+        <div class="outcome-item"><div class="oi-icon">🤖</div><div class="oi-text">Private AI that<br>knows your business</div></div>
+        <div class="outcome-item"><div class="oi-icon">💬</div><div class="oi-text">Text it from<br>your phone anytime</div></div>
+        <div class="outcome-item"><div class="oi-icon">🗣️</div><div class="oi-text">Voice replies<br>back to you</div></div>
+        <div class="outcome-item"><div class="oi-icon">🌅</div><div class="oi-text">Daily briefings<br>every morning</div></div>
+        <div class="outcome-item"><div class="oi-icon">🔒</div><div class="oi-text">100% private<br>on your machine</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section>
+  <div class="container">
+    <div class="section-label">What People Say</div>
+    <h2 class="section-title">From skeptic to hooked in 2 hours</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="quote">"Everything that you've shown me — we can already start selling this. It's like that BMW training they sold for $10K, but it was just basic software tutorials. This is way beyond that."</div>
+        <div class="author">— Randalls C., Sales Executive & Entrepreneur</div>
+      </div>
+      <div class="proof-card">
+        <div class="quote">"I went from never touching a terminal to texting my own AI assistant that writes emails for me. In one session. I didn't think that was possible."</div>
+        <div class="author">— Early pilot participant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" style="background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">Choose your setup</h2>
+    <p class="section-desc">One session. Lifetime skill. 30-day support included with every tier.</p>
+    <div class="pricing-row">
+      <div class="price-card">
+        <div class="tier-name">Starter</div>
+        <div class="price">$497</div>
+        <div class="price-sub">One-time · 2-hour live session</div>
+        <ul>
+          <li>Full AI stack on your laptop</li>
+          <li>Telegram bot connected to phone</li>
+          <li>Custom tool built for your business</li>
+          <li>Session recording to keep</li>
+          <li>30 days of direct support</li>
+        </ul>
+        <a href="#book" class="card-cta secondary">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="tier-name">Always-On ⭐</div>
+        <div class="price">$997</div>
+        <div class="price-sub">One-time · 3-hour live session</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Runs 24/7 — even when laptop is closed</li>
+          <li>WhatsApp + Telegram connected</li>
+          <li>Voice replies from your assistant</li>
+          <li>Daily morning briefing</li>
+          <li>Obsidian memory sync (mobile)</li>
+          <li>Follow-up call included</li>
+        </ul>
+        <a href="#book" class="card-cta primary">Most Popular →</a>
+      </div>
+      <div class="price-card">
+        <div class="tier-name">Team</div>
+        <div class="price">$2,497</div>
+        <div class="price-sub">One-time · up to 5 people</div>
+        <ul>
+          <li>Everything in Always-On</li>
+          <li>Setup for your whole team</li>
+          <li>Shared AI workspace</li>
+          <li>Team workflow customization</li>
+          <li>90 days of team support</li>
+        </ul>
+        <a href="#book" class="card-cta secondary">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do I need any coding experience?</div>
+        <div class="faq-a">None at all. This is designed for people who have never written a line of code. I guide you through every single step live.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What do I need before the session?</div>
+        <div class="faq-a">A laptop (Mac or Windows), stable internet, and a phone with Telegram installed. That's it. I'll send you a short prep email 48 hours before.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are there ongoing costs after the session?</div>
+        <div class="faq-a">The AI brain (Claude) requires a subscription (~$20/month). Everything else is free. I'll explain all costs transparently during our session.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if something breaks after the session?</div>
+        <div class="faq-a">You get 30 days of direct support (90 days for Team tier). Message me anytime and I'll help you fix it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my data private?</div>
+        <div class="faq-a">100%. Your AI assistant runs on YOUR machine. Your data never leaves your computer. No third-party servers, no data sharing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What can the assistant actually do?</div>
+        <div class="faq-a">Write emails, research prospects, build automations, track expenses, generate content, answer questions about your business, send you daily briefings — and more. We customize it to your specific needs during the session.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Ready to meet your AI?</h2>
+    <p>One session. Your own private assistant. On your phone by tonight.</p>
+    <a href="#book" class="hero-cta">Book Your Session →</a>
+    <p class="hero-note">Limited spots available · Pilot pricing won't last</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-brand">J&A Business Solutions LLC</div>
+    <div class="footer-links">
+      <a href="mailto:atemndobs@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
