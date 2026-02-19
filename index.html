@@ -302,6 +302,117 @@
         <div class="role">Phone Access</div>
       </div>
     </div>
+
+    <!-- Architecture Diagram -->
+    <div style="margin-top: 64px; text-align: center;">
+      <div style="font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">System Architecture</div>
+      <h3 style="font-size: 22px; font-weight: 700; color: #e5e7eb; margin-bottom: 10px;">How It All Connects</h3>
+      <p style="font-size: 15px; color: #9ca3af; max-width: 520px; margin: 0 auto 32px; line-height: 1.6;">Every piece runs on your machine. Your data stays private — nothing goes to third-party servers.</p>
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;min-width:560px;margin:0 auto;display:block;">
+          <defs>
+            <marker id="arr-accent" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+            </marker>
+            <marker id="arr-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+            </marker>
+            <marker id="arr-dim" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="rgba(255,255,255,0.2)"/>
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="800" height="350" rx="20" fill="#111115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="400" y="28" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="2">ARCHITECTURE OVERVIEW</text>
+
+          <!-- PHONE -->
+          <rect x="24" y="44" width="140" height="162" rx="14" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+          <text x="94" y="102" text-anchor="middle" font-size="28">📱</text>
+          <text x="94" y="128" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Telegram</text>
+          <text x="94" y="146" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="10">Your Phone</text>
+          <text x="94" y="190" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Text · Voice</text>
+
+          <!-- OPENCLAW -->
+          <rect x="230" y="44" width="172" height="162" rx="14" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
+          <text x="316" y="102" text-anchor="middle" font-size="28">🦞</text>
+          <text x="316" y="128" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">OpenClaw</text>
+          <text x="316" y="146" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="10">AI Gateway · Scheduler</text>
+          <text x="316" y="162" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Runs on your Mac · 24/7</text>
+          <text x="316" y="177" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Memory · Skills · Cron jobs</text>
+          <text x="316" y="192" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Warp Terminal · Obsidian</text>
+
+          <!-- AI MODELS -->
+          <rect x="476" y="44" width="300" height="162" rx="14" fill="rgba(16,185,129,0.04)" stroke="rgba(16,185,129,0.18)" stroke-width="1"/>
+          <text x="626" y="70" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">AI MODELS</text>
+
+          <rect x="490" y="80" width="82" height="82" rx="10" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.22)" stroke-width="1"/>
+          <text x="531" y="108" text-anchor="middle" font-size="20">🤖</text>
+          <text x="531" y="128" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Claude</text>
+          <text x="531" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Sonnet 4.6</text>
+          <text x="531" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Primary</text>
+
+          <rect x="583" y="80" width="82" height="82" rx="10" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.16)" stroke-width="1"/>
+          <text x="624" y="108" text-anchor="middle" font-size="20">✨</text>
+          <text x="624" y="128" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Gemini</text>
+          <text x="624" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Pro Preview</text>
+          <text x="624" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Fallback · Free</text>
+
+          <rect x="676" y="80" width="82" height="82" rx="10" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
+          <text x="717" y="108" text-anchor="middle" font-size="20">⚡</text>
+          <text x="717" y="128" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Qwen</text>
+          <text x="717" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Coder Model</text>
+          <text x="717" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Free Tier</text>
+
+          <!-- ARROWS -->
+          <line x1="166" y1="110" x2="228" y2="110" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-accent)"/>
+          <text x="197" y="103" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600">message</text>
+          <line x1="228" y1="128" x2="166" y2="128" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-accent)"/>
+          <text x="197" y="146" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="9">voice reply</text>
+
+          <line x1="403" y1="110" x2="474" y2="110" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-green)"/>
+          <text x="438" y="103" text-anchor="middle" fill="#6ee7b7" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600">query</text>
+          <line x1="474" y1="128" x2="403" y2="128" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-green)"/>
+          <text x="438" y="146" text-anchor="middle" fill="#6ee7b7" font-family="Inter,system-ui,sans-serif" font-size="9">response</text>
+
+          <line x1="316" y1="208" x2="316" y2="236" stroke="rgba(255,255,255,0.12)" stroke-width="1" marker-end="url(#arr-dim)"/>
+
+          <!-- TOOLS ROW -->
+          <text x="400" y="254" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">TOOLS &amp; MEMORY</text>
+
+          <rect x="24" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="68" y="288" text-anchor="middle" font-size="18">📁</text>
+          <text x="68" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Files</text>
+          <text x="68" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Local</text>
+
+          <rect x="122" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="166" y="288" text-anchor="middle" font-size="18">📧</text>
+          <text x="166" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Gmail</text>
+          <text x="166" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Read + Send</text>
+
+          <rect x="220" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="264" y="288" text-anchor="middle" font-size="18">📅</text>
+          <text x="264" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Calendar</text>
+          <text x="264" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Google</text>
+
+          <rect x="318" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="362" y="288" text-anchor="middle" font-size="18">🧠</text>
+          <text x="362" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Obsidian</text>
+          <text x="362" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Memory</text>
+
+          <rect x="416" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="460" y="288" text-anchor="middle" font-size="18">🌐</text>
+          <text x="460" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Web Search</text>
+          <text x="460" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Live Data</text>
+
+          <!-- Privacy badge -->
+          <rect x="514" y="262" width="262" height="64" rx="10" fill="rgba(16,185,129,0.05)" stroke="rgba(16,185,129,0.22)" stroke-width="1"/>
+          <text x="645" y="285" text-anchor="middle" font-size="16">🔒</text>
+          <text x="645" y="306" text-anchor="middle" fill="#10b981" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">100% Private by Design</text>
+          <text x="645" y="320" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">All data stays on your machine. Always.</text>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -332,6 +443,55 @@
         <div class="phase-title">🛠️ Build Something Real</div>
         <div class="phase-desc">Together, we build a tool tailored to YOUR business — a sales automator, expense tracker, content generator, whatever you need most.</div>
       </div>
+    </div>
+
+    <!-- Session Flow Diagram -->
+    <div style="margin-top: 56px; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+      <svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;min-width:500px;margin:0 auto;display:block;">
+        <defs>
+          <marker id="flow-arr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L7,3 z" fill="rgba(255,255,255,0.25)"/>
+          </marker>
+        </defs>
+        <rect width="760" height="120" rx="16" fill="#111115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+        <!-- Step 1 -->
+        <rect x="16" y="20" width="150" height="80" rx="12" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
+        <text x="91" y="50" text-anchor="middle" font-size="20">🔧</text>
+        <text x="91" y="70" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Foundation</text>
+        <text x="91" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Accounts + setup</text>
+        <text x="91" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">20 min</text>
+
+        <!-- Arrow 1 -->
+        <line x1="168" y1="60" x2="198" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
+
+        <!-- Step 2 -->
+        <rect x="200" y="20" width="150" height="80" rx="12" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
+        <text x="275" y="50" text-anchor="middle" font-size="20">⚡</text>
+        <text x="275" y="70" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Core Tools</text>
+        <text x="275" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Install the stack</text>
+        <text x="275" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">30 min</text>
+
+        <!-- Arrow 2 -->
+        <line x1="352" y1="60" x2="382" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
+
+        <!-- Step 3 (highlighted) -->
+        <rect x="384" y="16" width="150" height="88" rx="12" fill="rgba(99,102,241,0.13)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
+        <text x="459" y="48" text-anchor="middle" font-size="20">📱</text>
+        <text x="459" y="68" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Connect Phone</text>
+        <text x="459" y="84" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="9">The magic moment</text>
+        <text x="459" y="96" text-anchor="middle" fill="#6366f1" font-family="Inter,system-ui,sans-serif" font-size="8">40 min</text>
+
+        <!-- Arrow 3 -->
+        <line x1="536" y1="60" x2="566" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
+
+        <!-- Step 4 -->
+        <rect x="568" y="20" width="176" height="80" rx="12" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.22)" stroke-width="1"/>
+        <text x="656" y="50" text-anchor="middle" font-size="20">🛠️</text>
+        <text x="656" y="70" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Build for You</text>
+        <text x="656" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Custom automation</text>
+        <text x="656" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">20 min</text>
+      </svg>
     </div>
   </div>
 </section>
