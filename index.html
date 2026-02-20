@@ -1,602 +1,1128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Private Assistant — AI Setup in 2 Hours</title>
-<meta name="description" content="Get your own private AI assistant on your phone in 2 hours. No coding required. Live guided session.">
-<meta property="og:title" content="Your Private Assistant — On Your Phone in 2 Hours">
-<meta property="og:description" content="A live session where we set up a complete private AI assistant you can text from your phone.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  
-  :root {
-    --bg: #0a0a0a;
-    --surface: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.08);
-    --text: #fff;
-    --text-muted: #9ca3af;
-    --text-dim: #6b7280;
-    --accent: #6366f1;
-    --accent-soft: rgba(99, 102, 241, 0.15);
-    --green: #10b981;
-    --green-soft: rgba(16, 185, 129, 0.1);
-  }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-  /* Nav */
-  nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
-  nav .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 18px; font-weight: 700; color: var(--text-muted); }
-  .nav-cta {
-    background: var(--accent); color: #fff; text-decoration: none;
-    font-size: 14px; font-weight: 600; padding: 10px 24px; border-radius: 8px;
-    transition: opacity 0.2s;
-  }
-  .nav-cta:hover { opacity: 0.9; }
-
-  /* Hero */
-  .hero { padding: 100px 0 80px; position: relative; }
-  .hero::before {
-    content: ''; position: absolute; top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, var(--accent-soft), transparent 70%);
-    pointer-events: none;
-  }
-  .badge {
-    display: inline-block; background: var(--accent-soft);
-    border: 1px solid rgba(99,102,241,0.3); color: #818cf8;
-    font-size: 13px; font-weight: 600; padding: 6px 16px;
-    border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-  h1 {
-    font-size: clamp(36px, 6vw, 56px); font-weight: 800; line-height: 1.08;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .hero-sub {
-    font-size: clamp(16px, 2.5vw, 20px); color: var(--text-muted);
-    max-width: 600px; margin-bottom: 40px;
-  }
-  .cta-btn {
-    display: inline-block; background: var(--accent); color: #fff;
-    text-decoration: none; font-size: 18px; font-weight: 700;
-    padding: 16px 40px; border-radius: 12px;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-  .cta-btn:hover { transform: translateY(-2px); opacity: 0.95; }
-  .hero-note { font-size: 13px; color: var(--text-dim); margin-top: 12px; }
-
-  /* Stats */
-  .stats {
-    display: flex; gap: 40px; padding: 50px 0;
-    border-bottom: 1px solid var(--border); flex-wrap: wrap;
-  }
-  .stat { text-align: center; flex: 1; min-width: 100px; }
-  .stat-value { font-size: clamp(28px, 4vw, 36px); font-weight: 800; color: #818cf8; }
-  .stat-label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-
-  /* Section */
-  section { padding: 80px 0; }
-  .section-label {
-    font-size: 12px; font-weight: 700; color: var(--text-dim);
-    text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 16px;
-  }
-  .section-desc {
-    font-size: 18px; color: var(--text-muted); max-width: 600px; margin-bottom: 48px;
-  }
-
-  /* Problem */
-  .problems { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .problem-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px;
-  }
-  .problem-card .emoji { font-size: 28px; margin-bottom: 12px; }
-  .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-  .problem-card p { font-size: 14px; color: var(--text-muted); }
-
-  /* Stack */
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .stack-item {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px 16px; text-align: center;
-    transition: border-color 0.2s;
-  }
-  .stack-item:hover { border-color: rgba(99,102,241,0.3); }
-  .stack-item img { width: 48px; height: 48px; margin-bottom: 12px; border-radius: 10px; object-fit: contain; }
-  .stack-item .name { font-size: 14px; font-weight: 600; color: #e5e7eb; }
-  .stack-item .role { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
-
-  /* Phases */
-  .phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .phase {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px; transition: border-color 0.2s;
-  }
-  .phase:hover { border-color: rgba(99,102,241,0.2); }
-  .phase-number { font-size: 12px; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-  .phase-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-  .phase-desc { font-size: 14px; color: var(--text-muted); }
-  .phase-time { font-size: 12px; color: var(--text-dim); margin-top: 10px; }
-  .phase.highlight { border-color: rgba(99,102,241,0.3); background: rgba(99,102,241,0.05); }
-
-  /* Outcome */
-  .outcome-box {
-    background: linear-gradient(135deg, var(--green-soft), var(--accent-soft));
-    border: 1px solid rgba(16,185,129,0.2);
-    border-radius: 24px; padding: 48px 32px; text-align: center;
-  }
-  .outcome-box h3 { font-size: 28px; font-weight: 700; color: var(--green); margin-bottom: 32px; }
-  .outcome-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; max-width: 700px; margin: 0 auto; }
-  .outcome-item { text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 16px; }
-  .outcome-item .oi-icon { display: none; }
-  .outcome-item .oi-text { font-size: 14px; color: #d1d5db; font-weight: 500; line-height: 1.4; }
-
-  /* About / Instructor */
-  .about-card {
-    display: flex; gap: 32px; align-items: center;
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 20px; padding: 40px;
-  }
-  .about-photo {
-    width: 140px; height: 140px; border-radius: 50%;
-    object-fit: cover; flex-shrink: 0;
-    border: 3px solid rgba(99,102,241,0.3);
-  }
-  .about-info h3 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-  .about-info .title { font-size: 15px; color: #818cf8; font-weight: 600; margin-bottom: 12px; }
-  .about-info p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
-  .about-creds { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
-  .about-creds .cred { font-size: 13px; color: var(--text-dim); }
-  .about-creds .cred strong { color: #e5e7eb; }
-  @media (max-width: 640px) {
-    .about-card { flex-direction: column; text-align: center; }
-    .about-creds { justify-content: center; }
-  }
-
-  /* Social proof */
-  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .proof-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px;
-  }
-  .proof-card .quote { font-size: 16px; color: #e5e7eb; font-style: italic; margin-bottom: 16px; line-height: 1.6; }
-  .proof-card .author { font-size: 14px; color: var(--text-dim); font-weight: 600; }
-
-  /* Pricing */
-  .pricing-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .price-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 20px; padding: 36px 28px; text-align: center;
-  }
-  .price-card.featured { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
-  .price-card .tier-name { font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .price-card .price { font-size: 48px; font-weight: 800; margin-bottom: 4px; }
-  .price-card .price-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
-  .price-card ul { list-style: none; text-align: left; }
-  .price-card li { font-size: 14px; color: #d1d5db; padding: 5px 0; }
-  .price-card li::before { content: '✓ '; color: var(--green); font-weight: 700; }
-
-  /* FAQ */
-  .faq-list { max-width: 700px; }
-  .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; }
-  .faq-q { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-  .faq-a { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
-
-  /* Final CTA */
-  .final-cta { text-align: center; padding: 100px 0; }
-  .final-cta h2 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px; }
-  .final-cta p { font-size: 18px; color: var(--text-muted); margin-bottom: 36px; }
-
-  /* Footer */
-  footer { padding: 40px 0; border-top: 1px solid var(--border); }
-  footer .container {
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 16px;
-  }
-  .footer-brand { font-size: 16px; font-weight: 700; color: var(--text-dim); }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { font-size: 14px; color: var(--text-dim); text-decoration: none; }
-  .footer-links a:hover { color: var(--text-muted); }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Private AI Assistant | Bertrand Atemkeng</title>
+    <meta name="description" content="Get a complete private AI assistant setup in 2 hours. Running on your machine. Your data, your control.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #0f172a;
+            --primary-dark: #020617;
+            --secondary: #334155;
+            --text-dark: #0f172a;
+            --text-medium: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.02);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 30px) scale(1.05); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .trust-badges {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        
+        .trust-badge {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .trust-badge::before {
+            content: '✓';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+        
+        .testimonial {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .testimonial-content {
+            padding: 40px;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .quote {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 0;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .author-info p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .screenshot {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .phone-mockup {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 30px;
+            padding: 50px 20px 30px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+        
+        .chat-message {
+            background: var(--bg-white);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .chat-message.ai {
+            background: #f1f5f9;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-demo {
+            background: var(--bg-light);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: var(--shadow-md);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .chat-demo {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .chat-demo-message {
+            margin-bottom: 16px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .chat-demo-message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .message-bubble {
+            padding: 14px 18px;
+            border-radius: 18px;
+            max-width: 70%;
+        }
+        
+        .message-bubble.user {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .message-bubble.ai {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        
+        /* Two Column Features */
+        .two-col-features {
+            background: var(--bg-light);
+            padding: 100px 0;
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: var(--bg-white);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card p {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+        
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+        }
+        
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .comparison-col {
+            background: var(--bg-white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .comparison-col.highlight {
+            background: #ffffff;
+            border: 2px solid var(--primary);
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .comparison-col.highlight::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .comparison-col h3 {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        
+        .comparison-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        
+        .comparison-icon.check {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        
+        .comparison-icon.cross {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+        }
+        
+        /* Security Section */
+        .security {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .security::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .security .section-header h2,
+        .security .section-header p {
+            color: white;
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .security-feature {
+            text-align: center;
+        }
+        
+        .security-feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 24px;
+        }
+        
+        .security-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .security-feature p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .process-step h3 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+        
+        .process-step p {
+            color: var(--text-medium);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--bg-light);
+            padding: 100px 0;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            padding: 24px 32px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 32px 24px;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-cta {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .footer-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .footer-cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+        }
+        
+        .footer-info {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-info p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+        
+        .footer-info a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .footer-info a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .testimonial {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-demo {
+                padding: 32px 24px;
+            }
+            
+            .feature-card {
+                padding: 32px;
+            }
+            
+            .comparison-col {
+                padding: 32px 24px;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading animation */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-
-<!-- Nav -->
-<nav>
-  <div class="container">
-    <div class="logo">Your Private Assistant</div>
-    <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="nav-cta">Book a Consultation</a>
-  </div>
-</nav>
-
-<!-- Hero -->
-<header class="hero">
-  <div class="container">
-    <div class="badge">Live Guided Setup</div>
-    <h1>Your Own AI Assistant.<br>On Your Phone.<br>In 2 Hours.</h1>
-    <p class="hero-sub">A live, one-on-one session where I set up a complete private AI assistant you can text from your phone — it knows your business, writes code, automates tasks, and answers on demand.</p>
-    <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="cta-btn">Book a Free Consultation →</a>
-    <p class="hero-note">No coding experience needed · Works on Mac & Windows</p>
-  </div>
-</header>
-
-<!-- Stats -->
-<div class="container">
-  <div class="stats">
-    <div class="stat"><div class="stat-value">2h</div><div class="stat-label">Live Session</div></div>
-    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Coding Required</div></div>
-    <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Always On</div></div>
-    <div class="stat"><div class="stat-value">📱</div><div class="stat-label">Text from Phone</div></div>
-  </div>
-</div>
-
-<!-- Problem -->
-<section>
-  <div class="container">
-    <div class="section-label">The Problem</div>
-    <h2 class="section-title">AI is everywhere. But setting it up?</h2>
-    <p class="section-desc">You've seen the demos. You know AI can transform your business. But when you try to actually use it...</p>
-    <div class="problems">
-      <div class="problem-card"><div class="emoji">😵‍💫</div><h3>Too many tools</h3><p>ChatGPT, Claude, Gemini, Copilot... Which one? How do they work together? Nobody explains this.</p></div>
-      <div class="problem-card"><div class="emoji">🖥️</div><h3>Technical setup is brutal</h3><p>Terminals, CLIs, API keys, authentication flows. One wrong step and nothing works.</p></div>
-      <div class="problem-card"><div class="emoji">😤</div><h3>YouTube doesn't cut it</h3><p>Fragmented tutorials that are already outdated. No one to ask when you get stuck.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- Stack -->
-<section style="background: rgba(255,255,255,0.01);">
-  <div class="container">
-    <div class="section-label">The Solution</div>
-    <h2 class="section-title">We handle the hard part. You walk away with a personal AI.</h2>
-    <p class="section-desc">In a single live session, I install and configure a complete AI assistant stack on your machine — connected to your phone.</p>
-    <div class="stack-grid">
-      <div class="stack-item">
-        <img src="https://openclaw.ai/icon.png" alt="OpenClaw" style="width:48px;height:48px;" onerror="this.outerHTML='<div style=&quot;width:48px;height:48px;margin:0 auto 12px;background:rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px&quot;>🦞</div>'">
-        <div class="name">OpenClaw</div>
-        <div class="role">AI Brain (Free)</div>
-      </div>
-      <div class="stack-item">
-        <img src="https://code.visualstudio.com/assets/images/code-stable.png" alt="Antigravity IDE" style="width:48px;height:48px;" onerror="this.outerHTML='<div style=&quot;width:48px;height:48px;margin:0 auto 12px;background:rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#007ACC;font-size:14px&quot;>AG</div>'">
-        <div class="name">Antigravity</div>
-        <div class="role">Desktop IDE + Gemini</div>
-      </div>
-      <div class="stack-item">
-        <img src="https://app.warp.dev/favicon.ico" alt="Warp" style="width:48px;height:48px;filter:brightness(1.5);" onerror="this.outerHTML='<div style=&quot;width:48px;height:48px;margin:0 auto 12px;background:rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#01c1a7;font-size:14px&quot;>W</div>'">
-        <div class="name">Warp Terminal</div>
-        <div class="role">AI Terminal</div>
-      </div>
-      <div class="stack-item">
-        <img src="https://obsidian.md/images/obsidian-logo-gradient.svg" alt="Obsidian" style="width:48px;height:48px;" onerror="this.outerHTML='<div style=&quot;width:48px;height:48px;margin:0 auto 12px;background:rgba(255,255,255,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#7c3aed;font-size:14px&quot;>O</div>'">
-        <div class="name">Obsidian</div>
-        <div class="role">Memory</div>
-      </div>
-      <div class="stack-item">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/120px-Telegram_logo.svg.png" alt="Telegram" style="width:48px;height:48px;">
-        <div class="name">Telegram</div>
-        <div class="role">Phone Access</div>
-      </div>
-    </div>
-
-    <!-- Architecture Diagram -->
-    <div style="margin-top: 64px; text-align: center;">
-      <div style="font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">System Architecture</div>
-      <h3 style="font-size: 22px; font-weight: 700; color: #e5e7eb; margin-bottom: 10px;">How It All Connects</h3>
-      <p style="font-size: 15px; color: #9ca3af; max-width: 520px; margin: 0 auto 32px; line-height: 1.6;">Every piece runs on your machine. Your data stays private — nothing goes to third-party servers.</p>
-      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;min-width:560px;margin:0 auto;display:block;">
-          <defs>
-            <marker id="arr-accent" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
-            </marker>
-            <marker id="arr-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
-            </marker>
-            <marker id="arr-dim" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="rgba(255,255,255,0.2)"/>
-            </marker>
-          </defs>
-
-          <!-- Background -->
-          <rect width="800" height="350" rx="20" fill="#111115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="400" y="28" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="2">ARCHITECTURE OVERVIEW</text>
-
-          <!-- PHONE -->
-          <rect x="24" y="44" width="140" height="162" rx="14" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
-          <text x="94" y="102" text-anchor="middle" font-size="28">📱</text>
-          <text x="94" y="128" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Telegram</text>
-          <text x="94" y="146" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="10">Your Phone</text>
-          <text x="94" y="190" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Text · Voice</text>
-
-          <!-- OPENCLAW -->
-          <rect x="230" y="44" width="172" height="162" rx="14" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
-          <text x="316" y="102" text-anchor="middle" font-size="28">🦞</text>
-          <text x="316" y="128" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">OpenClaw</text>
-          <text x="316" y="146" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="10">AI Gateway · Scheduler</text>
-          <text x="316" y="162" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Runs on your Mac · 24/7</text>
-          <text x="316" y="177" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Memory · Skills · Cron jobs</text>
-          <text x="316" y="192" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Warp Terminal · Obsidian</text>
-
-          <!-- AI MODELS -->
-          <rect x="476" y="44" width="300" height="162" rx="14" fill="rgba(16,185,129,0.04)" stroke="rgba(16,185,129,0.18)" stroke-width="1"/>
-          <text x="626" y="70" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">AI MODELS</text>
-
-          <rect x="490" y="80" width="82" height="82" rx="10" fill="rgba(99,102,241,0.09)" stroke="rgba(99,102,241,0.22)" stroke-width="1"/>
-          <text x="531" y="108" text-anchor="middle" font-size="20">🤖</text>
-          <text x="531" y="128" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Claude</text>
-          <text x="531" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Sonnet 4.6</text>
-          <text x="531" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Primary</text>
-
-          <rect x="583" y="80" width="82" height="82" rx="10" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.16)" stroke-width="1"/>
-          <text x="624" y="108" text-anchor="middle" font-size="20">✨</text>
-          <text x="624" y="128" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Gemini</text>
-          <text x="624" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Pro Preview</text>
-          <text x="624" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Fallback · Free</text>
-
-          <rect x="676" y="80" width="82" height="82" rx="10" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
-          <text x="717" y="108" text-anchor="middle" font-size="20">⚡</text>
-          <text x="717" y="128" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Qwen</text>
-          <text x="717" y="143" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Coder Model</text>
-          <text x="717" y="156" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">Free Tier</text>
-
-          <!-- ARROWS -->
-          <line x1="166" y1="110" x2="228" y2="110" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-accent)"/>
-          <text x="197" y="103" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600">message</text>
-          <line x1="228" y1="128" x2="166" y2="128" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-accent)"/>
-          <text x="197" y="146" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="9">voice reply</text>
-
-          <line x1="403" y1="110" x2="474" y2="110" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-green)"/>
-          <text x="438" y="103" text-anchor="middle" fill="#6ee7b7" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600">query</text>
-          <line x1="474" y1="128" x2="403" y2="128" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-green)"/>
-          <text x="438" y="146" text-anchor="middle" fill="#6ee7b7" font-family="Inter,system-ui,sans-serif" font-size="9">response</text>
-
-          <line x1="316" y1="208" x2="316" y2="236" stroke="rgba(255,255,255,0.12)" stroke-width="1" marker-end="url(#arr-dim)"/>
-
-          <!-- TOOLS ROW -->
-          <text x="400" y="254" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="1.5">TOOLS &amp; MEMORY</text>
-
-          <rect x="24" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="68" y="288" text-anchor="middle" font-size="18">📁</text>
-          <text x="68" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Files</text>
-          <text x="68" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Local</text>
-
-          <rect x="122" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="166" y="288" text-anchor="middle" font-size="18">📧</text>
-          <text x="166" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Gmail</text>
-          <text x="166" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Read + Send</text>
-
-          <rect x="220" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="264" y="288" text-anchor="middle" font-size="18">📅</text>
-          <text x="264" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Calendar</text>
-          <text x="264" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Google</text>
-
-          <rect x="318" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="362" y="288" text-anchor="middle" font-size="18">🧠</text>
-          <text x="362" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Obsidian</text>
-          <text x="362" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Memory</text>
-
-          <rect x="416" y="262" width="88" height="64" rx="10" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-          <text x="460" y="288" text-anchor="middle" font-size="18">🌐</text>
-          <text x="460" y="307" text-anchor="middle" fill="#9ca3af" font-family="Inter,system-ui,sans-serif" font-size="10">Web Search</text>
-          <text x="460" y="319" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">Live Data</text>
-
-          <!-- Privacy badge -->
-          <rect x="514" y="262" width="262" height="64" rx="10" fill="rgba(16,185,129,0.05)" stroke="rgba(16,185,129,0.22)" stroke-width="1"/>
-          <text x="645" y="285" text-anchor="middle" font-size="16">🔒</text>
-          <text x="645" y="306" text-anchor="middle" fill="#10b981" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">100% Private by Design</text>
-          <text x="645" y="320" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="9">All data stays on your machine. Always.</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How It Works -->
-<section>
-  <div class="container">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">Your 2-hour session, step by step</h2>
-    <p class="section-desc">No prep needed beyond a laptop and internet. I guide you through everything live.</p>
-    <div class="phases">
-      <div class="phase">
-        <div class="phase-number">Phase 1 · 20 min</div>
-        <div class="phase-title">🔧 Foundation</div>
-        <div class="phase-desc">Accounts, browser setup, system check. We make sure everything's ready before we build.</div>
-      </div>
-      <div class="phase">
-        <div class="phase-number">Phase 2 · 30 min</div>
-        <div class="phase-title">⚡ Core Tools</div>
-        <div class="phase-desc">Install your AI toolkit — Antigravity IDE, OpenClaw framework, and Warp Terminal. All free, all yours.</div>
-      </div>
-      <div class="phase highlight">
-        <div class="phase-number">Phase 3 · 40 min — The Magic</div>
-        <div class="phase-title">📱 Connect to Your Phone</div>
-        <div class="phase-desc">Set up your Telegram bot, configure your assistant's memory, and text your AI for the first time. This is the moment it clicks.</div>
-      </div>
-      <div class="phase">
-        <div class="phase-number">Phase 4 · 20 min</div>
-        <div class="phase-title">🛠️ Build Something Real</div>
-        <div class="phase-desc">Together, we build a tool tailored to YOUR business — a sales automator, expense tracker, content generator, whatever you need most.</div>
-      </div>
-    </div>
-
-    <!-- Session Flow Diagram -->
-    <div style="margin-top: 56px; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-      <svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:760px;min-width:500px;margin:0 auto;display:block;">
-        <defs>
-          <marker id="flow-arr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L7,3 z" fill="rgba(255,255,255,0.25)"/>
-          </marker>
-        </defs>
-        <rect width="760" height="120" rx="16" fill="#111115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-        <!-- Step 1 -->
-        <rect x="16" y="20" width="150" height="80" rx="12" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
-        <text x="91" y="50" text-anchor="middle" font-size="20">🔧</text>
-        <text x="91" y="70" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Foundation</text>
-        <text x="91" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Accounts + setup</text>
-        <text x="91" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">20 min</text>
-
-        <!-- Arrow 1 -->
-        <line x1="168" y1="60" x2="198" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
-
-        <!-- Step 2 -->
-        <rect x="200" y="20" width="150" height="80" rx="12" fill="rgba(99,102,241,0.07)" stroke="rgba(99,102,241,0.25)" stroke-width="1"/>
-        <text x="275" y="50" text-anchor="middle" font-size="20">⚡</text>
-        <text x="275" y="70" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Core Tools</text>
-        <text x="275" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Install the stack</text>
-        <text x="275" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">30 min</text>
-
-        <!-- Arrow 2 -->
-        <line x1="352" y1="60" x2="382" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
-
-        <!-- Step 3 (highlighted) -->
-        <rect x="384" y="16" width="150" height="88" rx="12" fill="rgba(99,102,241,0.13)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
-        <text x="459" y="48" text-anchor="middle" font-size="20">📱</text>
-        <text x="459" y="68" text-anchor="middle" fill="#c7d2fe" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Connect Phone</text>
-        <text x="459" y="84" text-anchor="middle" fill="#818cf8" font-family="Inter,system-ui,sans-serif" font-size="9">The magic moment</text>
-        <text x="459" y="96" text-anchor="middle" fill="#6366f1" font-family="Inter,system-ui,sans-serif" font-size="8">40 min</text>
-
-        <!-- Arrow 3 -->
-        <line x1="536" y1="60" x2="566" y2="60" stroke="rgba(255,255,255,0.15)" stroke-width="1" marker-end="url(#flow-arr)"/>
-
-        <!-- Step 4 -->
-        <rect x="568" y="20" width="176" height="80" rx="12" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.22)" stroke-width="1"/>
-        <text x="656" y="50" text-anchor="middle" font-size="20">🛠️</text>
-        <text x="656" y="70" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700">Build for You</text>
-        <text x="656" y="86" text-anchor="middle" fill="#6b7280" font-family="Inter,system-ui,sans-serif" font-size="9">Custom automation</text>
-        <text x="656" y="97" text-anchor="middle" fill="#4b5563" font-family="Inter,system-ui,sans-serif" font-size="8">20 min</text>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- Outcome -->
-<section style="background: rgba(255,255,255,0.01);">
-  <div class="container">
-    <div class="outcome-box">
-      <h3>🎯 What You Walk Away With</h3>
-      <div class="outcome-items">
-        <div class="outcome-item"><div class="oi-icon">🤖</div><div class="oi-text">Private AI that<br>knows your business</div></div>
-        <div class="outcome-item"><div class="oi-icon">💬</div><div class="oi-text">Text it from<br>your phone anytime</div></div>
-        <div class="outcome-item"><div class="oi-icon">🗣️</div><div class="oi-text">Voice replies<br>back to you</div></div>
-        <div class="outcome-item"><div class="oi-icon">🌅</div><div class="oi-text">Daily briefings<br>every morning</div></div>
-        <div class="outcome-item"><div class="oi-icon">🔒</div><div class="oi-text">100% private<br>on your machine</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA after Outcome -->
-<section style="background: rgba(99,102,241,0.04); border-top: 1px solid rgba(99,102,241,0.12); border-bottom: 1px solid rgba(99,102,241,0.12);">
-  <div class="container" style="text-align: center; padding: 80px 24px;">
-    <div class="badge" style="margin-bottom: 20px;">Free Consultation · No Commitment</div>
-    <h2 style="font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-bottom: 16px;">Ready to meet your AI?</h2>
-    <p style="font-size: 18px; color: var(--text-muted); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto;">Book a free 30-minute call. We'll walk through your setup, answer every question, and get you on the calendar.</p>
-    <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="cta-btn" style="font-size: 20px; padding: 18px 48px;">Book Your Free Call →</a>
-    <p class="hero-note" style="margin-top: 16px;">No coding experience needed · Works on Mac &amp; Windows · 30-day support included</p>
-  </div>
-</section>
-
-<!-- About the Instructor -->
-<section>
-  <div class="container">
-    <div class="section-label">Your Instructor</div>
-    <h2 class="section-title">Who's setting this up for you?</h2>
-    <div class="about-card" style="margin-top: 32px;">
-      <img src="https://avatars.githubusercontent.com/u/40489767?v=4" alt="Bertrand Atemkeng" class="about-photo">
-      <div class="about-info">
-        <h3>Bertrand Atemkeng</h3>
-        <div class="title">Solution Architect & AI Specialist</div>
-        <p>I've spent over a decade building software systems for enterprises and startups. Now I help non-technical entrepreneurs harness AI without the learning curve. I've personally set up AI assistants for business owners, sales teams, and creatives — and I'll do the same for you, live, in a single session.</p>
-        <div class="about-creds">
-          <div class="cred"><strong>10+</strong> years in tech</div>
-          <div class="cred"><strong>Solution Architect</strong> by trade</div>
-          <div class="cred"><strong>CEO</strong> of J&A Business Solutions</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Your Private AI Assistant.<br>On Your Machine.</h1>
+            <p class="hero-subtitle">Stop sharing your data with cloud services. Get a complete, private AI assistant installed and configured on your laptop in just 2 hours.</p>
+            <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="cta-button">Book Your Free Call</a>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">100% Private</div>
+                <div class="trust-badge">No Subscription</div>
+                <div class="trust-badge">30-Day Support</div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section style="background: rgba(255,255,255,0.01);">
-  <div class="container">
-    <div class="section-label">FAQ</div>
-    <h2 class="section-title">Common questions</h2>
-    <div class="faq-list" style="margin-top: 32px;">
-      <div class="faq-item">
-        <div class="faq-q">Do I need any coding experience?</div>
-        <div class="faq-a">None at all. This is designed for people who have never written a line of code. I guide you through every single step live.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What do I need before the session?</div>
-        <div class="faq-a">A laptop (Mac or Windows), stable internet, and a phone with Telegram installed. That's it. I'll send you a short prep email 48 hours before.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Are there ongoing costs after the session?</div>
-        <div class="faq-a">The base setup is completely free — we use Google's Gemini AI through Antigravity, which costs nothing. If you want even more powerful responses, you can optionally add Claude ($20/month), but it's not required.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What if something breaks after the session?</div>
-        <div class="faq-a">You get 30 days of direct support (90 days for Team tier). Message me anytime and I'll help you fix it.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Is my data private?</div>
-        <div class="faq-a">100%. Your AI assistant runs on YOUR machine. Your data never leaves your computer. No third-party servers, no data sharing.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What can the assistant actually do?</div>
-        <div class="faq-a">Write emails, research prospects, build automations, track expenses, generate content, answer questions about your business, send you daily briefings — and more. We customize it to your specific needs during the session.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Final CTA -->
-<section class="final-cta">
-  <div class="container">
-    <h2>Still have questions?</h2>
-    <p>The free call is the answer. 30 minutes, no pressure, no commitment.</p>
-    <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="cta-btn">Book a Free Consultation →</a>
-    <p class="hero-note">No coding experience needed · Works on Mac &amp; Windows</p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-brand">J&A Business Solutions LLC</div>
-    <div class="footer-links">
-      <a href="mailto:atemndobs@gmail.com">Contact</a>
-    </div>
-  </div>
-</footer>
-
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <div class="quote">
+                        I spent weeks trying to set this up myself. Atem did it in 2 hours and customized everything to my exact workflow. Game changer.
+                    </div>
+                    <div class="author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Michael K.</h4>
+                            <p>Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot">
+                    <div class="phone-mockup">
+                        <div class="chat-message">
+                            What's on my calendar today?
+                        </div>
+                        <div class="chat-message ai">
+                            You have 3 meetings:<br>
+                            • 10am: Product sync with Sarah<br>
+                            • 2pm: Investor call<br>
+                            • 4pm: Team standup
+                        </div>
+                        <div class="chat-message">
+                            Draft a follow-up email to Sarah
+                        </div>
+                        <div class="chat-message ai">
+                            Done. Sent to your drafts:<br>
+                            "Hi Sarah, great sync this morning..."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Inbox, Calendar & Messages—<br>Finally Working Together</h2>
+                <p>One AI that knows your entire workflow</p>
+            </div>
+            
+            <div class="feature-demo">
+                <div class="chat-demo">
+                    <div class="chat-demo-message user">
+                        <div class="message-bubble user">
+                            Find all emails from investors this week and summarize
+                        </div>
+                    </div>
+                    <div class="chat-demo-message">
+                        <div class="message-bubble ai">
+                            Found 7 emails from 4 investors. Key topics: 3 intro requests, 2 follow-ups on your deck, 1 meeting request for next week, 1 portfolio update. Want me to draft replies?
+                        </div>
+                    </div>
+                    <div class="chat-demo-message user">
+                        <div class="message-bubble user">
+                            Yes, and add the meeting to my calendar
+                        </div>
+                    </div>
+                    <div class="chat-demo-message">
+                        <div class="message-bubble ai">
+                            ✓ 3 draft replies ready in your outbox<br>
+                            ✓ Meeting added: Tue Feb 25, 2pm<br>
+                            ✓ Calendar invite sent
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Two Column Features -->
+    <section class="two-col-features">
+        <div class="container">
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Clarity Over Clutter</h3>
+                    <p>No more switching between 10 apps. Your AI reads your email, checks your calendar, manages your tasks—all in one conversation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Talk. Type. Done.</h3>
+                    <p>Use Telegram, Signal, or WhatsApp. Text from your phone. Your AI is always there, always listening, always ready.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>DIY vs. Done-For-You</h2>
+                <p>Why waste weeks when you can have it working today?</p>
+            </div>
+            
+            <div class="comparison-table">
+                <div class="comparison-col">
+                    <h3>DIY Setup</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-icon cross">✕</div>
+                        <div>Hours of YouTube tutorials and failed installs</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon cross">✕</div>
+                        <div>No support when something breaks</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon cross">✕</div>
+                        <div>Generic setup, not tailored to your workflow</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon cross">✕</div>
+                        <div>Data privacy depends on which tools you pick</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon cross">✕</div>
+                        <div>Weeks of tinkering before it actually works</div>
+                    </div>
+                </div>
+                
+                <div class="comparison-col highlight">
+                    <h3>Atem's Session</h3>
+                    <div class="comparison-item">
+                        <div class="comparison-icon check">✓</div>
+                        <div>Done in 2 hours, live with an expert</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon check">✓</div>
+                        <div>30-day support included</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon check">✓</div>
+                        <div>Customized to YOUR business, YOUR tools</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon check">✓</div>
+                        <div>100% private — runs on YOUR machine</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-icon check">✓</div>
+                        <div>Walk away with a working AI assistant today</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Security -->
+    <section class="security">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Data. Your Control.</h2>
+                <p>Unlike ChatGPT or other cloud services, your data never leaves your machine</p>
+            </div>
+            
+            <div class="security-features">
+                <div class="security-feature">
+                    <div class="security-feature-icon">🔒</div>
+                    <h3>100% Local</h3>
+                    <p>Everything runs on your laptop. No cloud. No third parties.</p>
+                </div>
+                
+                <div class="security-feature">
+                    <div class="security-feature-icon">🛡️</div>
+                    <h3>Zero Tracking</h3>
+                    <p>Your conversations, emails, and documents stay private. Always.</p>
+                </div>
+                
+                <div class="security-feature">
+                    <div class="security-feature-icon">⚡</div>
+                    <h3>No Subscription</h3>
+                    <p>Pay once. Own it forever. Optional API costs: $5-20/month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From zero to fully functional AI assistant in one session</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Book a Call</h3>
+                    <p>We'll discuss your workflow, tools, and what you want your AI to do</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>2-Hour Setup</h3>
+                    <p>Live session where I install, configure, and customize everything on your machine</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Start Using</h3>
+                    <p>Walk away with a working AI assistant. Text it from your phone. Get instant answers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need coding experience?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No. This is a done-for-you service. I handle all the technical setup. You just need to be comfortable using your laptop and phone.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What do I need before the session?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            A laptop (Mac, Windows, or Linux), stable internet connection, and your phone. That's it.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are there ongoing costs?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Minimal. You may need API keys for AI models ($5-20/month depending on usage). No subscription to me—pay once, own forever.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if something breaks?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            You get 30 days of support included. If anything breaks or you have questions, I'm here to help.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data really private?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, 100%. Everything runs locally on your machine. Your emails, messages, and documents never leave your laptop. Unlike cloud services, there's no third party that can access your data.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What can the assistant actually do?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Read and manage your email, check your calendar, send messages, research topics, write and execute code, automate tasks, answer questions 24/7—all through a simple chat interface on your phone.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-cta">
+                <h2>Ready to Get Started?</h2>
+                <p>Book a free 15-minute call to see if this is right for you</p>
+                <a href="https://calendly.com/atemkeng/personal-assistant-intro-call" class="cta-button">Book Your Free Call</a>
+            </div>
+            
+            <div class="footer-info">
+                <p><strong>Bertrand Atemkeng</strong></p>
+                <p>Solution Architect • 10+ Years Building Software Systems</p>
+                <p style="margin-top: 24px; font-size: 0.875rem;">
+                    <a href="mailto:hello@atemkeng.com">hello@atemkeng.com</a>
+                </p>
+                <p style="margin-top: 32px; font-size: 0.75rem;">
+                    © 2026 Bertrand Atemkeng. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature-card, .comparison-col, .process-step, .security-feature').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
